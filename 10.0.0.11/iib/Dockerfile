@@ -7,7 +7,7 @@
 
 # modified by Essameldin Salah
 
-FROM ubuntu:16.04
+FROM picoded/ubuntu-openjdk-8-jdk:latest
 
 LABEL maintainer "Dan Robinson <dan.robinson@uk.ibm.com>, Sam Rogers <srogers@uk.ibm.com>"
 
