@@ -7,7 +7,7 @@
 
 # modified by Essameldin Salah
 
-FROM picoded/ubuntu-openjdk-8-jdk:latest
+FROM ubuntu:16.04
 
 LABEL maintainer "Dan Robinson <dan.robinson@uk.ibm.com>, Sam Rogers <srogers@uk.ibm.com>"
 
@@ -19,6 +19,15 @@ LABEL "ProductID"="447aefb5fd1342d5b893f3934dfded73" \
 RUN apt-get update && \
     apt-get install -y curl rsyslog sudo && \
     rm -rf /var/lib/apt/lists/*
+
+#Install Open JDK 7
+
+RUN apt-get update \
+    && apt-get -y install openjdk-7-jdk \
+    && rm -rf /var/lib/apt/lists/*
+
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+ENV PATH $JAVA_HOME/bin:$PATH
 
 # Install IIB V10 Developer edition
 RUN mkdir /opt/ibm && \
