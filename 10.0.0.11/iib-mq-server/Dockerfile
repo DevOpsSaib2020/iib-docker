@@ -75,7 +75,7 @@ ARG IIB_URL=http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/integr
 # Install IIB V10 Developer edition
 RUN mkdir /opt/ibm && \
     curl $IIB_URL \ 
-    | tar zx --exclude iib-10.0.0.11/tools --directory /opt/ibm && \
+    | tar zx  --directory /opt/ibm && \
     /opt/ibm/iib-10.0.0.11/iib make registry global accept license silently
 
 # Configure system
